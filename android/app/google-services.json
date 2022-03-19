@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "469569358824",
+    "project_id": "waffle-d595c",
+    "storage_bucket": "waffle-d595c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469569358824:android:eab23e33013d05a46e325d",
+        "android_client_info": {
+          "package_name": "com.example.waffle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469569358824-0m1mrah9grfav8354aa36kbh1avmh47v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.waffle",
+            "certificate_hash": "eb378e99fb8697a2479e1ba4e42bd8e5a9169cc4"
+          }
+        },
+        {
+          "client_id": "469569358824-3dd12iagqug2mq416el273u1odrtdrtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIYOjvh3SvwrB56JDXGp0OT1nkWk0M8i0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469569358824-3dd12iagqug2mq416el273u1odrtdrtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
