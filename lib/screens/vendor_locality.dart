@@ -67,19 +67,22 @@ class VendorLocality extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Vendor Locality',
+                  'Other Required Details',
                   style: TextStyleClass.h3Bold(
                     context,
                     CustomColors.primaryColor(),
                   ).copyWith(fontSize: 32),
                 ),
+                SizedBox(
+                  height: 60,
+                ),
                 Text(
-                  'Select to location and timings',
+                  'Select your region :',
                   style: TextStyleClass.h3Bold(
                     context,
                     CustomColors.primaryColor(),
                   ).copyWith(
-                    fontSize: 12,
+                    fontSize: 22,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
@@ -107,6 +110,44 @@ class VendorLocality extends StatelessWidget {
               onChanged: (_) {},
             ),
           ),
+
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.45,
+            child: Column(children: [
+              Text(
+                'Select your gender :',
+                style: TextStyleClass.h3Bold(
+                  context,
+                  CustomColors.primaryColor(),
+                ).copyWith(
+                  fontSize: 22,
+                  fontWeight: FontWeight.normal,
+                ),
+              )
+            ]),
+          ),
+
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.53,
+            child: DropdownButton<String>(
+              dropdownColor: CustomColors.blackVariant3(),
+              items: <String>[
+                'Male',
+                'Female',
+                'Not To Say'
+              ].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: TextStyleClass.bodyText(context, Colors.white),
+                  ),
+                );
+              }).toList(),
+              onChanged: (_) {},
+            ),
+          ),
+
           Positioned(
             top: MediaQuery.of(context).size.height * 90,
             child: CustomButton(
