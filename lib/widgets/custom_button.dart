@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:waffle/constants/custom_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String buttonText;
   final Color buttonColor;
+
   const CustomButton({
     required this.buttonText,
     required this.buttonColor,
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
       width: 200,
       height: 56,
       decoration: BoxDecoration(
-        color: buttonColor  ,
+        color: buttonColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:waffle/screens/vendor_locality.dart';
+import 'package:waffle/widgets/custom_button.dart';
 import 'package:waffle/widgets/custom_input.dart';
 import '../constants/custom_colors.dart';
 import '../constants/text_styles.dart';
@@ -14,6 +16,7 @@ class VendorRegistrations extends StatefulWidget {
 class _VendorRegistrationsState extends State<VendorRegistrations> {
   final TextEditingController _vendorLicenseNumberController =
       TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,7 +60,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //Waffle
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.06,
+              top: MediaQuery.of(context).size.height * 0.08,
               child: Text(
                 'thelaside',
                 style: TextStyleClass.logoStyle(
@@ -70,7 +73,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //sub heading
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.12,
+              top: MediaQuery.of(context).size.height * 0.16,
               child: Column(
                 children: [
                   Text(
@@ -107,23 +110,74 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                       'Vendor License Number',
                       style: TextStyleClass.h3Bold(
                         context,
-                        CustomColors.primaryColorDark(),
+                        CustomColors.primaryColor(),
                       ),
                     ),
                   ),
-                  CustomInput(
-                    hintText: 'Vendor License Number',
-                    prefixIcon: const Icon(
-                      Icons.add,
-                      color: Colors.white,
+                  Form(
+                    key: _formKey,
+                    child: CustomInput(
+                      hintText: 'Vendor License Number',
+                      prefixIcon: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                      isObscureText: false,
+                      textEditingController: _vendorLicenseNumberController,
+                      onSaved: (value) {
+                        _vendorLicenseNumberController.text = value!;
+                      },
                     ),
-                    isObscureText: false,
-                    textEditingController: _vendorLicenseNumberController,
-                    onSaved: (value) {
-                      _vendorLicenseNumberController.text = value!;
-                    },
                   ),
                 ],
+              ),
+            ),
+
+            //Vendor Locality
+
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.53,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'Upload A Picture',
+                      style: TextStyleClass.h3Bold(
+                        context,
+                        CustomColors.primaryColor(),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      color: CustomColors.blackVariant3(),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.83,
+              child: GestureDetector(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VendorLocality(),
+                      ),
+                    );
+                  }
+                },
+                child: CustomButton(
+                  buttonText: 'Submit',
+                  buttonColor: CustomColors.primaryColorDark(),
+                ),
               ),
             )
           ],

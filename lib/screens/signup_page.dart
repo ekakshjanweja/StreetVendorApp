@@ -54,7 +54,7 @@ class _SignupPageState extends State<SignupPage> {
             //Background Blob 2
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.6,
+              top: MediaQuery.of(context).size.height * 0.7,
               left: 0,
               child: Padding(
                 padding: EdgeInsets.only(
