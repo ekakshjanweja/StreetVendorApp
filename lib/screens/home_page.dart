@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:waffle/constants/custom_colors.dart';
 import 'package:waffle/constants/text_styles.dart';
 import 'package:waffle/screens/login_page.dart';
+import 'package:waffle/screens/vendor_registration_page.dart';
 
 import 'package:waffle/services/firebase_auth_services.dart';
 import 'package:waffle/widgets/custom_button.dart';
@@ -52,9 +53,19 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            CustomButton(
-              buttonText: 'Update Favorites',
-              buttonColor: CustomColors.primaryColorDark(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const VendorRegistrations(),
+                  ),
+                );
+              },
+              child: CustomButton(
+                buttonText: 'Update Favorites',
+                buttonColor: CustomColors.primaryColorDark(),
+              ),
             )
           ],
         ),

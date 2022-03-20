@@ -4,6 +4,7 @@ import 'package:waffle/constants/custom_colors.dart';
 import 'package:waffle/constants/text_styles.dart';
 import 'package:waffle/screens/home_page.dart';
 import 'package:waffle/screens/login_page.dart';
+import 'package:waffle/screens/vendor_registration_page.dart';
 import 'package:waffle/services/firebase_auth_services.dart';
 import 'package:waffle/widgets/custom_button.dart';
 import 'package:waffle/widgets/custom_input.dart';
@@ -18,6 +19,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -67,7 +69,7 @@ class _SignupPageState extends State<SignupPage> {
             Positioned(
               top: MediaQuery.of(context).size.height * 0.12,
               child: Text(
-                'uscesible',
+                'thelaside',
                 style: TextStyleClass.logoStyle(
                   context,
                   CustomColors.primaryColor(),
@@ -82,14 +84,14 @@ class _SignupPageState extends State<SignupPage> {
               child: Column(
                 children: [
                   Text(
-                    'places that you can',
+                    'Lorem Ipsum',
                     style: TextStyleClass.h3Bold(
                       context,
                       CustomColors.primaryColor(),
                     ),
                   ),
                   Text(
-                    'access easily',
+                    'Lorem Ipsum',
                     style: TextStyleClass.h3Bold(
                       context,
                       CustomColors.primaryColor(),
@@ -99,44 +101,50 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
 
-            //Email Input
+            //Form
 
             Positioned(
               top: MediaQuery.of(context).size.height * 0.35,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.01,
-                ),
-                child: CustomInput(
-                  hintText: 'Email',
-                  prefixIcon:
-                      const Icon(Icons.email, color: Colors.white, size: 20),
-                  isObscureText: false,
-                  textEditingController: _emailController,
-                  onSaved: (value) {
-                    _emailController.text = value!;
-                  },
-                ),
-              ),
-            ),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    //Email Input
 
-            //Password Input
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      child: CustomInput(
+                        hintText: 'Email',
+                        prefixIcon: const Icon(Icons.email,
+                            color: Colors.white, size: 20),
+                        isObscureText: false,
+                        textEditingController: _emailController,
+                        onSaved: (value) {
+                          _emailController.text = value!;
+                        },
+                      ),
+                    ),
 
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.45,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.01,
-                ),
-                child: CustomInput(
-                  hintText: 'Password',
-                  prefixIcon:
-                      const Icon(Icons.lock, color: Colors.white, size: 20),
-                  isObscureText: true,
-                  textEditingController: _passwordController,
-                  onSaved: (value) {
-                    _passwordController.text = value!;
-                  },
+                    //Password Input
+
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      child: CustomInput(
+                        hintText: 'Password',
+                        prefixIcon: const Icon(Icons.lock,
+                            color: Colors.white, size: 20),
+                        isObscureText: true,
+                        textEditingController: _passwordController,
+                        onSaved: (value) {
+                          _passwordController.text = value!;
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -151,18 +159,22 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    print('Signup');
-                    FirebaseAuthClass.signUpWithEmailAndPassword(
-                      _emailController.text,
-                      _passwordController.text,
-                    ).then(
-                      (value) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
+                    if (_formKey.currentState!.validate()) {
+                      print('Signup');
+                      FirebaseAuthClass.signUpWithEmailAndPassword(
+                        _emailController.text,
+                        _passwordController.text,
+                      ).then(
+                        (value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const VendorRegistrations(),
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    } else {
+                      print('error');
+                    }
                   },
                   child: CustomButton(
                     buttonText: 'Signup',

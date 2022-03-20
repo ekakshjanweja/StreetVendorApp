@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
             Positioned(
               top: MediaQuery.of(context).size.height * 0.12,
               child: Text(
-                'uscesible',
+                'thelaside',
                 style: TextStyleClass.logoStyle(
                   context,
                   CustomColors.primaryColor(),
@@ -83,14 +83,14 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   Text(
-                    'places that you can',
+                    'Lorem Ipsum',
                     style: TextStyleClass.h3Bold(
                       context,
                       CustomColors.primaryColor(),
                     ),
                   ),
                   Text(
-                    'access easily',
+                    'Lorem Ipsum',
                     style: TextStyleClass.h3Bold(
                       context,
                       CustomColors.primaryColor(),
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
 
-            //Email Input
+            //Form
 
             Positioned(
               top: MediaQuery.of(context).size.height * 0.35,
@@ -108,6 +108,8 @@ class _LoginPageState extends State<LoginPage> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      //Email Input
+
                       Padding(
                         padding: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.01,
