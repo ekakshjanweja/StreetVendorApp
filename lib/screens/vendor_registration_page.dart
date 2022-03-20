@@ -60,7 +60,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //Waffle
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.08,
+              top: MediaQuery.of(context).size.height * 0.04,
               child: Text(
                 'thelaside',
                 style: TextStyleClass.logoStyle(
@@ -73,7 +73,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //sub heading
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.16,
+              top: MediaQuery.of(context).size.height * 0.08,
               child: Column(
                 children: [
                   Text(
@@ -100,7 +100,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //Vendor License Number
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.35,
+              top: MediaQuery.of(context).size.height * 0.2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -136,7 +136,7 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
             //Vendor Locality
 
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.53,
+              top: MediaQuery.of(context).size.height * 0.35,
               child: Column(
                 children: [
                   Padding(
@@ -156,6 +156,66 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                       color: CustomColors.blackVariant3(),
                       borderRadius: BorderRadius.circular(10),
                     ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.65,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'Type of Seller',
+                        style: TextStyleClass.bodyText(context, Colors.white),
+                      ),
+                      DropdownButton<String>(
+                        dropdownColor: CustomColors.blackVariant3(),
+                        items: <String>[
+                          'Hawker',
+                          'Street Vendor',
+                        ].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyleClass.bodyText(
+                                  context, Colors.white),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {},
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Does the vendor \nown a mobile cart?',
+                        style: TextStyleClass.bodyText(context, Colors.white),
+                      ),
+                      DropdownButton<String>(
+                        dropdownColor: CustomColors.blackVariant3(),
+                        items: <String>[
+                          'Yes',
+                          'No',
+                        ].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyleClass.bodyText(
+                                  context, Colors.white),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {},
+                      ),
+                    ],
                   ),
                 ],
               ),

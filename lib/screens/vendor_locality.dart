@@ -73,11 +73,11 @@ class VendorLocality extends StatelessWidget {
                     CustomColors.primaryColor(),
                   ).copyWith(fontSize: 32),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Text(
-                  'Select your region :',
+                  'Select your region',
                   style: TextStyleClass.h3Bold(
                     context,
                     CustomColors.primaryColor(),
@@ -115,7 +115,7 @@ class VendorLocality extends StatelessWidget {
             top: MediaQuery.of(context).size.height * 0.45,
             child: Column(children: [
               Text(
-                'Select your gender :',
+                'Select your gender',
                 style: TextStyleClass.h3Bold(
                   context,
                   CustomColors.primaryColor(),
@@ -131,11 +131,8 @@ class VendorLocality extends StatelessWidget {
             top: MediaQuery.of(context).size.height * 0.53,
             child: DropdownButton<String>(
               dropdownColor: CustomColors.blackVariant3(),
-              items: <String>[
-                'Male',
-                'Female',
-                'Not To Say'
-              ].map((String value) {
+              items:
+                  <String>['Male', 'Female', 'Not To Say'].map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(
