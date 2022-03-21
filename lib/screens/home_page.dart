@@ -22,6 +22,35 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'the',
+                    style: TextStyleClass.h1Bold(
+                      context,
+                      CustomColors.primaryColor(),
+                    ),
+                  ),
+                  Text(
+                    'बोनी',
+                    style: TextStyleClass.logoStyle(
+                      context,
+                      CustomColors.primaryColor(),
+                    ),
+                  ),
+                  Text(
+                    'app',
+                    style: TextStyleClass.h1Bold(
+                      context,
+                      CustomColors.primaryColor(),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 80,
+              ),
               Text(
                 'Welcome, ' + FirebaseAuthClass.user.email.toString(),
                 style: TextStyleClass.h1Bold(context, Colors.white),

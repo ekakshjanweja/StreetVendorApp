@@ -54,12 +54,30 @@ class ProfilePage extends StatelessWidget {
 
           Positioned(
             top: MediaQuery.of(context).size.height * 0.08,
-            child: Text(
-              'thelaside',
-              style: TextStyleClass.logoStyle(
-                context,
-                CustomColors.primaryColor(),
-              ).copyWith(fontSize: 20),
+            child: Row(
+              children: [
+                Text(
+                  'the',
+                  style: TextStyleClass.h1Bold(
+                    context,
+                    CustomColors.primaryColor(),
+                  ),
+                ),
+                Text(
+                  'बोनी',
+                  style: TextStyleClass.logoStyle(
+                    context,
+                    CustomColors.primaryColor(),
+                  ),
+                ),
+                Text(
+                  'app',
+                  style: TextStyleClass.h1Bold(
+                    context,
+                    CustomColors.primaryColor(),
+                  ),
+                ),
+              ],
             ),
           ),
 

@@ -67,31 +67,25 @@ class _LoginPageState extends State<LoginPage> {
 
             Positioned(
               top: MediaQuery.of(context).size.height * 0.12,
-              child: Text(
-                'thelaside',
-                style: TextStyleClass.logoStyle(
-                  context,
-                  CustomColors.primaryColor(),
-                ),
-              ),
-            ),
-
-            //sub heading
-
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.2,
-              child: Column(
+              child: Row(
                 children: [
                   Text(
-                    'Lorem Ipsum',
-                    style: TextStyleClass.h3Bold(
+                    'the',
+                    style: TextStyleClass.h1Bold(
                       context,
                       CustomColors.primaryColor(),
                     ),
                   ),
                   Text(
-                    'Lorem Ipsum',
-                    style: TextStyleClass.h3Bold(
+                    'बोनी',
+                    style: TextStyleClass.logoStyle(
+                      context,
+                      CustomColors.primaryColor(),
+                    ),
+                  ),
+                  Text(
+                    'app',
+                    style: TextStyleClass.h1Bold(
                       context,
                       CustomColors.primaryColor(),
                     ),
@@ -99,6 +93,30 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+
+            //sub heading
+
+            // Positioned(
+            //   top: MediaQuery.of(context).size.height * 0.2,
+            //   child: Column(
+            //     children: [
+            //       Text(
+            //         'Lorem Ipsum',
+            //         style: TextStyleClass.h3Bold(
+            //           context,
+            //           CustomColors.primaryColor(),
+            //         ),
+            //       ),
+            //       Text(
+            //         'Lorem Ipsum',
+            //         style: TextStyleClass.h3Bold(
+            //           context,
+            //           CustomColors.primaryColor(),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             //Form
 

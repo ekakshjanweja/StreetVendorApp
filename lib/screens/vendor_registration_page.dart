@@ -59,16 +59,34 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
 
             //Waffle
 
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.04,
-              child: Text(
-                'thelaside',
-                style: TextStyleClass.logoStyle(
-                  context,
-                  CustomColors.primaryColor(),
-                ).copyWith(fontSize: 20),
-              ),
-            ),
+            // Positioned(
+            //   top: MediaQuery.of(context).size.height * 0.04,
+            //   child: Row(
+            //     children: [
+            //       Text(
+            //         'the',
+            //         style: TextStyleClass.h1Bold(
+            //           context,
+            //           CustomColors.primaryColor(),
+            //         ),
+            //       ),
+            //       Text(
+            //         'बोनी',
+            //         style: TextStyleClass.logoStyle(
+            //           context,
+            //           CustomColors.primaryColor(),
+            //         ),
+            //       ),
+            //       Text(
+            //         'app',
+            //         style: TextStyleClass.h1Bold(
+            //           context,
+            //           CustomColors.primaryColor(),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             //sub heading
 
