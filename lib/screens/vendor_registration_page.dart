@@ -17,6 +17,8 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
   final TextEditingController _vendorLicenseNumberController =
       TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  String vendorType = 'Vendor Type';
+  String mobileCart = 'Yes Or No';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -189,6 +191,10 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                         style: TextStyleClass.bodyText(context, Colors.white),
                       ),
                       DropdownButton<String>(
+                        hint: Text(
+                          vendorType,
+                          style: TextStyleClass.bodyText(context, Colors.white),
+                        ),
                         dropdownColor: CustomColors.blackVariant3(),
                         items: <String>[
                           'Hawker',
@@ -203,7 +209,9 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                             ),
                           );
                         }).toList(),
-                        onChanged: (_) {},
+                        onChanged: (item) => setState(() {
+                          vendorType = item!;
+                        }),
                       ),
                     ],
                   ),
@@ -217,6 +225,10 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                         style: TextStyleClass.bodyText(context, Colors.white),
                       ),
                       DropdownButton<String>(
+                        hint: Text(
+                          mobileCart,
+                          style: TextStyleClass.bodyText(context, Colors.white),
+                        ),
                         dropdownColor: CustomColors.blackVariant3(),
                         items: <String>[
                           'Yes',
@@ -231,7 +243,9 @@ class _VendorRegistrationsState extends State<VendorRegistrations> {
                             ),
                           );
                         }).toList(),
-                        onChanged: (_) {},
+                        onChanged: (item) => setState(() {
+                          mobileCart = item!;
+                        }),
                       ),
                     ],
                   ),

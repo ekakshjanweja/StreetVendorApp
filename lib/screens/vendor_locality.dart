@@ -6,9 +6,17 @@ import 'package:waffle/widgets/custom_button.dart';
 
 import '../constants/text_styles.dart';
 
-class VendorLocality extends StatelessWidget {
+class VendorLocality extends StatefulWidget {
   const VendorLocality({Key? key}) : super(key: key);
 
+  @override
+  State<VendorLocality> createState() => _VendorLocalityState();
+}
+
+class _VendorLocalityState extends State<VendorLocality> {
+  String region = 'Select region';
+  String gender = 'Select gender';
+  String category = 'Select category';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,6 +119,10 @@ class VendorLocality extends StatelessWidget {
           Positioned(
             top: MediaQuery.of(context).size.height * 0.35,
             child: DropdownButton<String>(
+              hint: Text(
+                region,
+                style: TextStyleClass.bodyText(context, Colors.white),
+              ),
               dropdownColor: CustomColors.blackVariant3(),
               items: <String>[
                 'West Delhi',
@@ -126,7 +138,9 @@ class VendorLocality extends StatelessWidget {
                   ),
                 );
               }).toList(),
-              onChanged: (_) {},
+              onChanged: (item) => setState(() {
+                region = item!;
+              }),
             ),
           ),
 
@@ -149,9 +163,13 @@ class VendorLocality extends StatelessWidget {
           Positioned(
             top: MediaQuery.of(context).size.height * 0.53,
             child: DropdownButton<String>(
+              hint: Text(
+                gender,
+                style: TextStyleClass.bodyText(context, Colors.white),
+              ),
               dropdownColor: CustomColors.blackVariant3(),
-              items:
-                  <String>['Male', 'Female', 'Not To Say'].map((String value) {
+              items: <String>['Male', 'Female', 'Rather Not Say']
+                  .map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(
@@ -160,11 +178,57 @@ class VendorLocality extends StatelessWidget {
                   ),
                 );
               }).toList(),
-              onChanged: (_) {},
+              onChanged: (item) => setState(() {
+                gender = item!;
+              }),
+            ),
+          ),
+
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.65,
+            child: Column(children: [
+              Text(
+                'Select your Category',
+                style: TextStyleClass.h3Bold(
+                  context,
+                  CustomColors.primaryColor(),
+                ).copyWith(
+                  fontSize: 22,
+                  fontWeight: FontWeight.normal,
+                ),
+              )
+            ]),
+          ),
+
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.73,
+            child: DropdownButton<String>(
+              hint: Text(
+                category,
+                style: TextStyleClass.bodyText(context, Colors.white),
+              ),
+              dropdownColor: CustomColors.blackVariant3(),
+              items: <String>[
+                'Fruits',
+                'Vegetables',
+                'Street Food',
+                'Miscellaneous items',
+              ].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: TextStyleClass.bodyText(context, Colors.white),
+                  ),
+                );
+              }).toList(),
+              onChanged: (item) => setState(() {
+                category = item!;
+              }),
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.80,
+            top: MediaQuery.of(context).size.height * 0.85,
             child: GestureDetector(
               onTap: () {
                 Navigator.push(
