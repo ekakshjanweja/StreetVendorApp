@@ -23,16 +23,10 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Signed In As',
+                'Welcome, ' + FirebaseAuthClass.user.email.toString(),
                 style: TextStyleClass.h1Bold(context, Colors.white),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                FirebaseAuthClass.user.email.toString(),
-                style: TextStyleClass.h1Bold(context, Colors.white),
-              ),
+
               const SizedBox(
                 height: 40,
               ),
@@ -52,23 +46,23 @@ class HomePage extends StatelessWidget {
                   buttonColor: CustomColors.primaryColorDark(),
                 ),
               ),
-              const SizedBox(
-                height: 40,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const VendorRegistrations(),
-                    ),
-                  );
-                },
-                child: CustomButton(
-                  buttonText: 'Verification',
-                  buttonColor: CustomColors.primaryColorDark(),
-                ),
-              ),
+              // const SizedBox(
+              //   height: 40,
+              // ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const VendorRegistrations(),
+              //       ),
+              //     );
+              //   },
+              //   child: CustomButton(
+              //     buttonText: 'Verification',
+              //     buttonColor: CustomColors.primaryColorDark(),
+              //   ),
+              // ),
               const SizedBox(
                 height: 40,
               ),

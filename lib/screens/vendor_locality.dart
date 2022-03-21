@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:waffle/constants/custom_colors.dart';
+import 'package:waffle/screens/home_page.dart';
 import 'package:waffle/widgets/custom_button.dart';
 
 import '../constants/text_styles.dart';
@@ -144,12 +145,21 @@ class VendorLocality extends StatelessWidget {
               onChanged: (_) {},
             ),
           ),
-
           Positioned(
-            top: MediaQuery.of(context).size.height * 90,
-            child: CustomButton(
-              buttonText: 'Sign Out',
-              buttonColor: CustomColors.primaryColorDark(),
+            top: MediaQuery.of(context).size.height * 0.80,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              },
+              child: CustomButton(
+                buttonText: 'Confirm',
+                buttonColor: CustomColors.primaryColorDark(),
+              ),
             ),
           ),
         ],

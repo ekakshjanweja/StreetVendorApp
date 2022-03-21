@@ -25,9 +25,14 @@ class LocationsPage extends StatelessWidget {
               ),
               Column(
                 children: [
-                  LocationCard(),
-                  LocationCard(),
-                  LocationCard(),
+                  LocationCard(locationName: 'Location 1'),
+                  LocationCard(locationName: 'Location 2'),
+                  LocationCard(locationName: 'Location 3'),
+                  LocationCard(locationName: 'Location 4'),
+                  LocationCard(locationName: 'Location 5'),
+                  LocationCard(locationName: 'Location 6'),
+                  LocationCard(locationName: 'Location 7'),
+                  LocationCard(locationName: 'Location 8'),
                 ],
               )
             ],
